@@ -33,10 +33,6 @@ if not user.strip():
     print 'Error!'
     print 'Server configuration user name undefined\n'
     sys.exit(100)
-if not icon.strip():
-    print 'Error!'
-    print 'Server configuration user icon undefined\n'
-    sys.exit(100)
 if not channel.strip():
     print 'Error!'
     print 'Parameter channel undefined\n'
@@ -58,7 +54,11 @@ if proxyUrl:
 try:
     request = urllib2.Request(url)
     request.add_header('Content-Type', 'application/json')
-    postdata = {'channel': channel.strip(), 'username': user.strip(), 'icon_emoji': icon.strip(), 'text': message.strip()}
+    postdata = {}
+    if icon.strip():
+        postdata = {'channel': channel.strip(), 'username': user.strip(), 'icon_emoji': icon.strip(), 'text': message.strip(), 'mrkdwn': True}
+    else:
+        postdata = {'channel': channel.strip(), 'username': user.strip(), 'text': message.strip(), 'mrkdwn': True}
     data = json.dumps(postdata)
     response = urllib2.urlopen(request, data)
 except urllib2.HTTPError as error:

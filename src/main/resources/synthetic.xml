@@ -13,7 +13,7 @@
 
         <property name="url" label="Slack URL" description="Slack Incoming WebHook URL" required="true"/>
         <property name="userName" label="User name" description="Name to use in the notifications" required="true"/>
-        <property name="userIcon" label="User icon" description="Icon to use in the notifications, it should be a icon emoji" required="true"/>
+        <property name="userIcon" label="User icon" description="Icon to use in the notifications, it should be a icon emoji" required="false"/>
         <property name="proxyUrl" category="input" label="Proxy URL" description="Proxy URL to use in format http://username:password@proxyurl:proxyport, leave it in blank if isn't required" required="false"/>
 
     </type>
