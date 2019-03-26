@@ -7,27 +7,24 @@
 
 -->
 
-<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" >
 
-    <type type="slack.Server" extends="xlrelease.Configuration">
+    <type type="mattermost.Server" extends="xlrelease.Configuration">
 
-        <property name="url" label="Slack URL" description="Slack Incoming WebHook URL" required="true"/>
-        <property name="userName" label="User name" description="Name to use in the notifications" required="true"/>
-        <property name="userIcon" label="User icon" description="Icon to use in the notifications, it should be a icon emoji" required="false"/>
-        <property name="proxyUrl" category="Input" label="Proxy URL" description="Proxy URL to use in format http://username:password@proxyurl:proxyport, leave it in blank if isn't required" required="false"/>
+        <property name="url" label="Mattermost Webhook URL" description="Mattermost Incoming WebHook URL" required="true" />
+        <!-- <property name="proxyUrl" category="Input" label="Proxy URL" description="Proxy URL to use in format http://username:password@proxyurl:proxyport, leave it in blank if isn't required" required="false"/> -->
 
     </type>
 
-    <type type="slack.Notification" extends="xlrelease.PythonScript">
+    <type type="mattermost.Notification" extends="xlrelease.PythonScript">
 
         <!-- Plugin -->
-        <property name="iconLocation" hidden="true" default="slack/logo.png"/>
-        <property name="taskColor" hidden="true" default="#EC8022"/>
+        <property name="iconLocation" hidden="true" default="mattermost/logo.png" />
+        <property name="taskColor" hidden="true" default="#000000" />
 
         <!-- Inputs -->
-        <property name="server" category="input" label="Server" description="The Slack server definition to use" required="true" referenced-type="slack.Server" kind="ci"/>
-        <property name="channel" category="input" label="Channel" description="The target for the notification, use `#` or `@` to refer to a channel or direct message" required="true"/>
-        <property name="message" category="input" label="Message" description="The notification message text" required="true"/>
+        <property name="server" category="input" label="Server" description="The Mattermost server definition to use" required="true" referenced-type="mattermost.Server" kind="ci" />
+        <property name="message" category="input" label="Message" description="The notification message text." required="true" />
 
     </type>
 
