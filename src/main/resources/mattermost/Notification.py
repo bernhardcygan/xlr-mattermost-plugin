@@ -18,6 +18,11 @@ if not url.strip():
     print 'Error!'
     print 'Server configuration url undefined\n'
     sys.exit(100)
+hook = server['hook']
+if not hook.strip():
+    print 'Error!'
+    print 'Hook configuration path undefined\n'
+    sys.exit(100)
 if not message.strip():
     print 'Error!'
     print 'Parameter message undefined\n'
@@ -26,14 +31,15 @@ if not message.strip():
 # Call Mattermost Incoming WebHook
 optionHeader = {"Content-Type" : "application/json"}
 data = "text=%s" % message
+path = "/hooks/%s" % (hook)
 
-print "\nsending text to webhook: " + url 
+print "\nsending text to server at: %s/%s" % ( url, path )  
 
-response = httpRequest.post("", data, headers=optionHeader)
+response = httpRequest.post(path, data, headers=optionHeader)
 reqStatus = response.getStatus()
 data = response.getResponse()
 
-print "\ndata:\n" + data 
+print "\nresponse data:\n" + data 
  
 if reqStatus != STATUS_OK:
     raise ValueError('Error sending notification', reqStatus, data)
