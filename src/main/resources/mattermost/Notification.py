@@ -8,6 +8,7 @@ import json
 from xlrelease.HttpRequest import HttpRequest
 
 STATUS_OK = 200
+MOVED_PERMANENTLY = 301
 
 httpRequest = HttpRequest( server, username=None, password=None)
 
@@ -29,7 +30,10 @@ data = "text=%s" % message
 response = httpRequest.post( url, data, headers=optionHeader)
 reqStatus = response.getStatus()
 data = response.getResponse()
-if reqStatus != STATUS_OK:
+
+print "/ndata:\n" + data 
+ 
+if reqStatus != STATUS_OK and reqStatus != MOVED_PERMANENTLY:
     raise ValueError('Error sending notification', reqStatus, data)
 
 print 'Message sent successfully\n'
