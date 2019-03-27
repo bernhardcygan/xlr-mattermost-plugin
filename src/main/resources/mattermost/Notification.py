@@ -9,7 +9,7 @@ from xlrelease.HttpRequest import HttpRequest
 
 STATUS_OK = 200
 
-http_request = HttpRequest( mattermostServer, username, password)
+httpRequest = HttpRequest( server, username=None, password=None)
 
 # Initialize variables & check parameters
 response = ''

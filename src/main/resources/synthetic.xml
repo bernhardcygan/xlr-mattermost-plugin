@@ -9,10 +9,9 @@
 
 <synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" >
 
-    <type type="mattermost.Server" extends="xlrelease.Configuration">
+    <type type="mattermost.Server" extends="configuration.HttpConnection" label="Mattermost: Server" >
 
         <property name="url" label="Mattermost Webhook URL" description="Mattermost Incoming WebHook URL" required="true" />
-        <!-- <property name="proxyUrl" category="Input" label="Proxy URL" description="Proxy URL to use in format http://username:password@proxyurl:proxyport, leave it in blank if isn't required" required="false"/> -->
 
     </type>
 
