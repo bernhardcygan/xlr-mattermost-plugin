@@ -28,7 +28,7 @@
 
         <!-- Inputs -->
         <property name="server" category="input" label="Server" description="The Mattermost hook definition to use" required="true" referenced-type="mattermost.Server" kind="ci" />
-        <property name="message" category="input" label="Message" description="The notification message text." required="true" />
+        <property name="message" category="input" label="Message" description="The notification message text. This message can contain emojis in colon notation." required="true" />
 
     </type>
 
