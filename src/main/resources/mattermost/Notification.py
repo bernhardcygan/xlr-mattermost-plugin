@@ -30,7 +30,7 @@ if not message.strip():
 
 # Call Mattermost Incoming WebHook
 optionHeader = {"Content-Type" : "application/json"}
-data = "text=%s" % message
+data = '{"text": ":robot: %s"}' % message
 path = "/hooks/%s" % (hook)
 
 print "\nsending text '%s' to hook at: %s%s" % ( data, url, path )  
