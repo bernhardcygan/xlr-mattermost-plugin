@@ -9,6 +9,7 @@ from xlrelease.HttpRequest import HttpRequest
 
 STATUS_OK = 200
 
+http_request = HttpRequest( mattermostServer, username, password)
 
 # Initialize variables & check parameters
 response = ''
@@ -25,7 +26,7 @@ if not message.strip():
 # Call Mattermost Incoming WebHook
 optionHeader = {"Content-Type" : "application/json"}
 data = "text=%s" % message
-response = self.httpRequest.post( url, data, headers=optionHeader)
+response = httpRequest.post( url, data, headers=optionHeader)
 reqStatus = response.getStatus()
 data = response.getResponse()
 if reqStatus != STATUS_OK:
