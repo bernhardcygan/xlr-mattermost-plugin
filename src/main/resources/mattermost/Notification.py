@@ -33,9 +33,9 @@ optionHeader = {"Content-Type" : "application/json"}
 data = "text=%s" % message
 path = "/hooks/%s" % (hook)
 
-print "\nsending text to server at: %s/%s" % ( url, path )  
+print "\nsending text '%s' to hook at: %s%s" % ( data, url, path )  
 
-response = httpRequest.post(path, data, headers=optionHeader)
+response = httpRequest.post(path, data, contentType="application/json", headers=optionHeader)
 reqStatus = response.getStatus()
 data = response.getResponse()
 
