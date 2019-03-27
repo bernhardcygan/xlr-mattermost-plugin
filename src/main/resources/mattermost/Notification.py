@@ -8,7 +8,6 @@ import json
 from xlrelease.HttpRequest import HttpRequest
 
 STATUS_OK = 200
-MOVED_PERMANENTLY = 301
 
 httpRequest = HttpRequest( server, username=None, password=None)
 
@@ -27,13 +26,16 @@ if not message.strip():
 # Call Mattermost Incoming WebHook
 optionHeader = {"Content-Type" : "application/json"}
 data = "text=%s" % message
-response = httpRequest.post( url, data, headers=optionHeader)
+
+print "\nsending text to webhook: " + url 
+
+response = httpRequest.post("", data, headers=optionHeader)
 reqStatus = response.getStatus()
 data = response.getResponse()
 
-print "/ndata:\n" + data 
+print "\ndata:\n" + data 
  
-if reqStatus != STATUS_OK and reqStatus != MOVED_PERMANENTLY:
+if reqStatus != STATUS_OK:
     raise ValueError('Error sending notification', reqStatus, data)
 
 print 'Message sent successfully\n'
