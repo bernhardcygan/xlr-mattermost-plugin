@@ -14,8 +14,8 @@
         <property name="url" label="Mattermost Server URL" description="Mattermost Server URL" required="true" />
         <property name="hook" label="Mattermost Webhook Path" description="Mattermost Incoming WebHook Path (the part after /hooks/)" required="true" />
         <property name="scriptLocation" hidden="true" default="configuration/HttpConnectionCheck.py" />
-        <property name="checkConfigurationPath" hidden="false" default="/" />
-<!--    <property name="checkConfigurationContentType" hidden="true" default="application/json" /> -->
+        <property name="checkConfigurationPath" hidden="false" default="/api/v4/system/ping" />
+        <property name="checkConfigurationContentType" hidden="false" default="application/json" />
 
     </type>
 
