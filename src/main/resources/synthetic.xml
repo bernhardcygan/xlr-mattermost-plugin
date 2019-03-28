@@ -9,12 +9,12 @@
 
 <synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" >
 
-    <type type="mattermost.Server" extends="configuration.HttpConnection" label="Mattermost: Hook Definition" >
+    <type type="mattermost.Server" extends="configuration.HttpConnection" label="Mattermost: Server" >
 
         <property name="url" label="Mattermost Server URL" description="Mattermost Server URL" required="true" />
         <property name="hook" label="Mattermost Webhook Path" description="Mattermost Incoming WebHook Path (the part after /hooks/)" required="true" />
         <property name="scriptLocation" hidden="true" default="configuration/HttpConnectionCheck.py" />
-        <property name="checkConfigurationPath" hidden="true" default="/" />
+        <property name="checkConfigurationPath" hidden="false" default="/" />
 <!--    <property name="checkConfigurationContentType" hidden="true" default="application/json" /> -->
 
     </type>
