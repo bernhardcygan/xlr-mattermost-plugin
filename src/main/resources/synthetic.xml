@@ -11,8 +11,8 @@
 
     <type type="mattermost.Server" extends="configuration.HttpConnection" label="Mattermost: Hook Definition" >
 
-        <property name="url" label="Mattermost Server URL" description="Mattermost Server URL" required="true" />
-        <property name="hook" label="Mattermost Webhook Path" description="Mattermost Incoming WebHook Path (the part after /hooks/)" required="true" />
+        <property name="url" label="Server URL" description="Server URL (the part before /hooks/)" required="true" />
+        <property name="hook" label="Webhook Path" description="Incoming WebHook Path (the part after /hooks/)" required="true" />
   <!--       
         <property name="scriptLocation" hidden="true" default="configuration/HttpConnectionCheck.py" />
         <property name="checkConfigurationPath" hidden="true" default="/" />
@@ -27,8 +27,8 @@
         <property name="taskColor" hidden="true" default="#000000" />
 
         <!-- Inputs -->
-        <property name="server" category="input" label="Server" description="The Mattermost hook definition to use" required="true" referenced-type="mattermost.Server" kind="ci" />
-        <property name="message" category="input" label="Message" description="The notification message text. This message can contain emojis in colon notation." required="true" />
+        <property name="server" category="input" label="Server" description="The webhook definition to use" required="true" referenced-type="mattermost.Server" kind="ci" />
+        <property name="message" category="input" label="Message" description="The notification message text. This text can contain emojis in colon notation." required="true" />
 
     </type>
 
