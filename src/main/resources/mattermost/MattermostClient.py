@@ -23,21 +23,6 @@ class MattermostClient( object ):
       return MattermostClient( mattermostCI, username, password )
    # End def
       
-   def checkConnection(self):
-      optionHeader = {"Content-Type" : "application/json"}
-      data = "" 
-      path = httpConnection.server['checkConfigurationPath']
-       
-      response = httpRequest.get(path, data, contentType="application/json", headers=optionHeader)
-      reqStatus = response.getStatus()
-      data = response.getResponse()
-      
-      if reqStatus >= 200 and reqStatus <= 300:
-         return data
-      raise ValueError('Error retrieving stage data', reqStatus, data)
-   # End def
-      
-
    def sendNotification(self, text ):
       optionHeader = {"Content-Type" : "application/json"}
       data = '{"text": "%s"}' % message
@@ -49,7 +34,7 @@ class MattermostClient( object ):
       
       if reqStatus == STATUS_OK or reqStatus == STATUS_ACCEPTED:
          return data
-      raise ValueError('Error retrieving stage data', reqStatus, data)
+      raise ValueError('Error sending notification', reqStatus, data)
    # End def
       
 
