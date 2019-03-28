@@ -4,13 +4,12 @@
 # FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
 #
 
-import json
 from mattermost.MattermostClient import MattermostClient
 
 
 try:
    mattermostClient = MattermostClient.create_mattermostClient( mattermostServer )
-   data = mattermostClient.sendNotification( message )
+   data = mattermostClient.checkConnection()
    print data
 except :
    traceback.print_exc(file=sys.stdout)
